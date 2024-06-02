@@ -1,0 +1,330 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0f0d11;
+  color: #e0e0e0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+a {
+  color: #00dfc0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #00aa98;
+  text-decoration: underline;
+}
+
+/* Glitch and Typewriter Effects */
+@keyframes glitch {
+  0% {
+      text-shadow: 2px -2px 0 #000, 2px 2px 10px #00dfc0, -2px -2px 10px #00dfc0, -2px 2px 10px #00dfc0;
+  }
+  14% {
+      text-shadow: 4px -2px 2px #000, 4px 2px 12px #00dfc0, -4px -2px 14px #00dfc0, -4px 2px 14px #00dfc0;
+  }
+  28% {
+      text-shadow: -2px -4px 0 #000, -2px 4px 10px #00dfc0, 2px -4px 10px #00dfc0, 2px 4px 12px #00dfc0;
+  }
+  42% {
+      text-shadow: 2px 4px 0 #000, 2px 4px 10px #00dfc0, 4px 4px 12px #00dfc0, 4px -4px 10px #00dfc0;
+  }
+  70% {
+      text-shadow: -4px 2px 0 #000, 2px -4px 10px #00dfc0, -4px 4px 14px #00dfc0, -4px -4px 10px #00dfc0;
+  }
+  100% {
+      text-shadow: 2px -2px 0 #000, 2px 2px 10px #00dfc0, -2px -2px 10px #00dfc0, -2px 2px 10px #00dfc0;
+  }
+}
+
+.glitch {
+  animation: glitch 2s linear infinite;
+}
+
+@keyframes typewriter {
+  from {
+      width: 0;
+  }
+  to {
+      width: 100%;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+      border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+      border-right-color: transparent;
+  }
+}
+
+.typewriter {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid rgba(255, 255, 255, 0.75);
+  width: 0;
+  animation: typewriter 4s steps(40) forwards, blinkTextCursor 750ms steps(40) infinite;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+
+.brand a {
+  font-size: 1.8em;
+  color: #00dfc0;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #e0e0e0;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+  .burger {
+      display: block;
+  }
+
+  .nav-links {
+      position: absolute;
+      right: 0;
+      top: -500%;
+      flex-direction: column;
+      background-color: #1a1a1a;
+      padding: 15px;
+      text-align: right;
+      border-bottom-left-radius: 10px;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-links li {
+      margin: 15px 0;
+  }
+
+  .nav-active {
+      top: 90%;
+      border-top: 1px solid #333;
+      transition: all 0.5s ease-in;
+  }
+
+  .burger.toggle .line1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .burger.toggle .line2 {
+      opacity: 0;
+  }
+
+  .burger.toggle .line3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+/* Header Section */
+header {
+  background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)),
+  url("https://images-eds-ssl.xboxlive.com/image?url=z951ykn43p4FqWbbFvR2Ec.8vbDhj8G2Xe7JngaTToA.As6cUevrJHlQJiUoFN9rEwpVI05DzJ.9nWVMwFrIIV_PJ7qUc2EAfpdKnfgbMIvv.86G.cRdvXa3idTodNz.We..ZIllQkDGfYe3Rcrwg8Dhe3GUyfYiN1RHp9jFufE0fV3X7m7BnisVCL1s8hSn.")
+  no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+.header-content {
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+.header-content .glitch {
+  font-size: 4.5em;
+  margin-bottom: 10px;
+  color: #00dfc0;
+}
+
+.header-content h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.header-content p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.contact-btn {
+  background-color: #00dfc0;
+  color: #121212;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.contact-btn:hover {
+  background-color: #00aa98;
+}
+
+/* About Section */
+.about {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 1.2em;
+  line-height: 1.7;
+}
+
+/* Skills Section */
+.skills {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.skill-card {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card i {
+  font-size: 4em;
+  margin-bottom: 15px;
+  color: #00dfc0;
+}
+
+.skill-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.skill-card p {
+  font-size: 1em;
+  color: #c0c0c0;
+}
+
+/* Contact Section */
+.contact {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-info {
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+  text-align: center;
+}
+
+.contact-info li {
+  margin: 15px 0;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.contact-info a {
+  color: #00dfc0;
+  transition: color 0.2s;
+  font-size: 1.4em;
+}
+
+.contact-info a:hover {
+  color: #00aa98;
+}
+
+.contact-info i {
+  font-size: 1.8em;
+}
+
+/* Footer Section */
+footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 15px;
+  font-size: 1em;
+  border-top: 1px solid #282828;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+  margin: 0;
+  color: #e0e0e0;
+}
+
+footer a {
+  text-decoration: none;
+  color: #00dfc0;
+}
+
+footer a:hover {
+  color: #00aa98;
+}
